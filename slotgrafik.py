@@ -17,7 +17,7 @@ import re
 from typing import Any, Dict, Generator, Iterable, List, Mapping, Optional, Set, Tuple, Union
 
 from auswertung import StsAuswertung
-from database import StsConfig
+from anlage import Anlage
 from stsplugin import PluginClient
 from stsobj import FahrplanZeile, ZugDetails, time_to_minutes
 
@@ -165,7 +165,7 @@ class SlotWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.client: Optional[PluginClient] = None
-        self.config: Optional[StsConfig] = None
+        self.anlage: Optional[Anlage] = None
         self.auswertung: Optional[StsAuswertung] = None
 
         self.setWindowTitle("slot-grafik")
@@ -253,7 +253,9 @@ class SlotWindow(QtWidgets.QMainWindow):
                                       linewidth=linewidth, picker=True, **kwargs)
         self._labels = self._axes.bar_label(self._balken, labels=labels, label_type='center',
                                             fontsize='small', fontstretch='condensed')
-        self._axes.axhline(y=0)
+
+        if self.zeitfenster_zurueck > 0:
+            self._axes.axhline(y=zeit)
 
         self._axes.figure.tight_layout()
 
