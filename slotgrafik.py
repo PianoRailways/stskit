@@ -99,7 +99,8 @@ class Slot:
 
         :return: farbbezeichnung für matplotlib
         """
-        if self.zug.gattung in {'ICE', 'TGV'}:
+        """
+		if self.zug.gattung in {'ICE', 'TGV'}:
             return 'tab:orange'
         elif self.zug.gattung in {'IC', 'EC', 'IR', 'IRE'}:
             return 'tab:green'
@@ -107,13 +108,47 @@ class Slot:
             return 'tab:blue'
         elif self.zug.gattung in {'S'}:
             return 'tab:purple'
-        elif nummer := self.zug.nummer > 0:
-            if nummer < 2000:
-                return 'tab:green'
-            elif nummer < 10000:
+        """
+        if self.zug.nummer > 0:
+            if self.zug.nummer > 96999:
+                return 'tab:pink'
+            elif 95999 <= self.zug.nummer <= 97000:
                 return 'tab:blue'
-            elif nummer < 30000:
+            elif 87999 <= self.zug.nummer <= 96000:
+                return 'tab:blue'
+            elif 87599 <= self.zug.nummer <= 88000:
+                return 'tab:red'
+            elif 50199 <= self.zug.nummer <= 87600:
+                return 'tab:blue'
+            #Post
+            elif 49999 <= self.zug.nummer <= 50200:
+                return 'yellow'
+            elif 44999 <= self.zug.nummer <= 49999:
+                return 'tab:blue'
+            elif 42999 <= self.zug.nummer <= 45000:
                 return 'tab:purple'
+            elif 39999 <= self.zug.nummer <= 43000:
+                return 'tab:blue'
+            elif 36999 <= self.zug.nummer <= 40000:
+                return 'tab:green'
+            elif 35999 <= self.zug.nummer <= 37000:
+                return 'tab:blue'
+            elif 29999 <= self.zug.nummer <= 36000:
+                return 'tab:green'
+            elif 28999 <= self.zug.nummer <= 30000:
+                return 'tab:blue'
+            elif 27999 <= self.zug.nummer <= 29000:
+                return 'tab:green'
+            elif 27000 <= self.zug.nummer <= 28000:
+                return 'tab:magenta'
+            elif 10999 <= self.zug.nummer <= 27000:
+                return '#F27E00'
+            elif 8999 <= self.zug.nummer <= 11000:
+                return 'tab:red'
+            elif 4099 <= self.zug.nummer <= 9000:
+                return 'tab:orange'
+            elif 0 <= self.zug.nummer <= 4100:
+                return 'tab:red'
             else:
                 return 'tab:brown'
         else:
