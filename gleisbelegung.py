@@ -352,8 +352,8 @@ class GleisbelegungWindow(QtWidgets.QMainWindow):
         self._auswahl: List[Slot] = []
         self.belegung: Optional[Gleisbelegung] = None
 
-        self.zeitfenster_voraus = 55
-        self.zeitfenster_zurueck = 5
+        self.zeitfenster_voraus = 60
+        self.zeitfenster_zurueck = 15
 
         self.ui = Ui_GleisbelegungWindow()
         self.ui.setupUi(self)
