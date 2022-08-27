@@ -140,8 +140,8 @@ class BildFahrplanWindow(QtWidgets.QMainWindow):
         self._distanz: List[float] = []
         self._zuglaeufe: Dict[Tuple[int, int], List[Trasse]] = {}
 
-        self.zeitfenster_voraus = 55
-        self.zeitfenster_zurueck = 5
+        self.zeitfenster_voraus = 50
+        self.zeitfenster_zurueck = 15
         self.farbschema = ZugFarbschema()
         self.farbschema.init_schweiz()
 
