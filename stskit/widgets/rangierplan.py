@@ -8,7 +8,7 @@ from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Set, 
 from PyQt5 import Qt, QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSlot, QModelIndex, QSortFilterProxyModel, QItemSelectionModel
 
-from plugin.stsobj import Ereignis
+from stskit.plugin.stsobj import Ereignis
 from stskit.model.bahnhofgraph import BahnhofGraph, BahnhofElement
 from stskit.model.signalgraph import SignalGraph
 from stskit.model.zielgraph import ZielGraph, ZielGraphNode, ZielLabelType
